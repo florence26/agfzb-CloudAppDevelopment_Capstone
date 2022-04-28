@@ -15,15 +15,17 @@ logger = logging.getLogger(__name__)
 
 
 # Create your views here.
-
+def homepage(request):
+    return render(request, 'djangoapp/index.html')
 
 # Create an `about` view to render a static about page
-# def about(request):
-# ...
+def about(request):
+    return render(request, 'djangoapp/about.html')
 
 
 # Create a `contact` view to return a static contact page
-#def contact(request):
+def contact(request):
+    return render(request, 'djangoapp/contact_us.html')
 
 # Create a `login_request` view to handle sign in request
 # def login_request(request):
@@ -52,3 +54,14 @@ def get_dealerships(request):
 # def add_review(request, dealer_id):
 # ...
 
+'''
+def popular_course_list(request):
+    context = {}
+    # If the request method is GET
+    if request.method == 'GET':
+        # Using the objects model manage to read all course list
+        # and sort them by total_enrollment descending
+        course_list = Course.objects.order_by('-total_enrollment')[:10]
+        # Appen the course list as an entry of context dict
+        context['course_list'] = course_list
+        return render(request, 'onlinecourse/course_list.html', context)'''
